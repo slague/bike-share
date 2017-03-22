@@ -14,6 +14,8 @@ group :development, :test do
   gem 'rack-test'
   gem 'pry'
   gem 'simplecov', :require => false
+  gem 'cane'
+  gem 'reek'
 end
 
 group :test do
