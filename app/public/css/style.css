@@ -111,3 +111,32 @@ html, body {
   letter-spacing: 2px;
   margin: 0px 40px 10px 40px;
 }
+
+table {
+  display: flex;
+  flex-grow: 2;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#monthly_totals {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#monthly_totals td, #monthly_totals th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#monthly_totals tr:nth-child(even){background-color: #f2f2f2;}
+
+#monthly_totals tr:hover {background-color: #ddd;}
+
+#monthly_totals th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

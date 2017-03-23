@@ -1,7 +1,52 @@
-<body class="weather_body">
 
 
-<h1>Weather Dashboard</h1>
 
-<a href="/conditions">Return to all Weather</a>
+<body>
+
+<button class="index_buttons">
+<a href="/conditions">Return to All Weather</a>
+</button>
+
+    <div>
+      <h2>The most trips, <%= Trip.most_trips_date_count %>, were taken on <%= Trip.highest_number_trips_date[0]%></h2>
+      <p>On this day:</p>
+
+      <p>Max Temp: <%= @highest.max_temperature_f %></p><br>
+      <p>Mean Temp: <%= @highest.mean_temperature_f %></p><br>
+      <p>Min Temp: <%= @highest.try(:min_temperature_f) %></p><br>
+      <p>Mean Humidity: <%= @highest.try(:mean_humidity) %></p><br>
+      <p>Mean Visibility(in miles): <%= @highest.try(:mean_visibility_miles) %></p><br>
+      <p>Mean Wind Speed (mph): <%= @highest.try(:mean_wind_speed_mph) %></p><br>
+      <p>Precipitation(inches): <%= @highest.try(:precipitation_inches) %></p><br>
+    </div>
+
+  <div>
+    <h2>The fewest trips, <%= Trip.fewest_trips_date_count %>, were taken on <%= Trip.fewest_number_trips_date[0]%></h2>
+    <p>On this day:</p>
+    <p>Max Temp: <%= @fewest.try(:max_temperature_f) %></p><br>
+    <p>Mean Temp: <%= @fewest.try(:mean_temperature_f) %></p><br>
+    <p>Min Temp: <%= @fewest.try(:min_temperature_f) %></p><br>
+    <p>Mean Humidity: <%= @cfewest.try(:mean_humidity) %></p><br>
+    <p>Mean Visibility(in miles): <%= @fewest.try(:mean_visibility_miles) %></p><br>
+    <p>Mean Wind Speed (mph): <%= @fewest.try(:mean_wind_speed_mph) %></p><br>
+    <p>Precipitation(inches): <%= @fewest.try(:precipitation_inches) %></p><br>
+  </div>
+
+
+<h2>Breakout of average number of rides on days with a high temperature in 10 degree chunks<h2>
+
+   <table id="monthly_totals">
+     <tr><% Condition.temperature_ranges.each do |range| %>
+         <th> Range <%= "#{range.first} to #{range.last}" %> </th>
+         <% end %>
+     </tr>
+
+     <tr><% Condition.get_averages_from_range.each do |average| %>
+       <th> Average number of rides:<%= average.to_f.round(2) %> </th>
+       <% end %>
+     </tr>
+
+   </table>
+
+
 </body>
