@@ -1,9 +1,13 @@
 class Trip < ActiveRecord::Base
+  default_scope { order(start_date: :desc) }
+  # scope :ordered_by_title, -> { order(title: :asc) }
+
   belongs_to :start_station, class_name: 'Station', foreign_key: :start_station_id
   belongs_to :end_station, class_name: 'Station', foreign_key: :end_station_id
   belongs_to :end_station, class_name: 'Station'
   belongs_to :subscription_type
   belongs_to :bike
+  belongs_to :condition
 
   validates :duration, presence: true
   validates :start_date, presence: true
@@ -62,10 +66,10 @@ class Trip < ActiveRecord::Base
     start_dates.group_by { |start_date| start_dates.count(start_date)}
   end
 
-  def self.highest_number_trips_date
-    start_dates = pluck(:start_date)
-    start_dates.group_by { |start_date| start_dates.count(start_date)}
-  end
+  # def self.highest_number_trips_date
+  #   start_dates = pluck(:start_date)
+  #   start_dates.group_by { |start_date| start_dates.count(start_date)}
+  # end
 
   def self.highest_number_trips_date
     number_by_date_hash.max.last.uniq

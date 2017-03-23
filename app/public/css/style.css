@@ -6,15 +6,24 @@ h1, h2, h3, p, li {
   letter-spacing: 2px;
   font-size: 20px;
 }
+h1 {
+  font-size: 40px;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
 
 .model_home {
   margin: 1em;
-  text-align: center;
+  text-align: left;
   width: 300px;
   background-color: lightgrey;
   border: 2px black solid;
   border-radius: 60px;
   padding: 1em;
+}
+
+.model_home button {
+font-size: 1em ;
+font-family: 'Oswald';
 }
 
 .model_index {
@@ -33,13 +42,19 @@ a:hover {
   color: #4a4e65;
 }
 
+button, a {
+  text-decoration: none;
+  color: black;
+
+}
+
 /* station styling */
 .station_button {
   border: 2px solid;
   border-radius: 5px;
   background-color: #007fe9;
   margin: 20px;
-
+  padding: 5px;
 }
 
 .model_home a {
@@ -71,9 +86,6 @@ html, body {
 }
 
 #body {
-  background-image: URL("https://images5.alphacoders.com/487/thumb-1920-487129.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
   padding: 10px;
   padding-bottom: 60px; /* height*/
 }
@@ -87,10 +99,43 @@ html, body {
   text-align: center;
 }
 
+.weather_body #body{
+  background-image: URL("https://static.pexels.com/photos/53594/blue-clouds-day-fluffy-53594.jpeg");
+}
+
 .global_nav {
   text-align: center;
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
   letter-spacing: 2px;
   margin: 0px 40px 10px 40px;
+}
+
+table {
+  display: flex;
+  flex-grow: 2;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#monthly_totals {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#monthly_totals td, #monthly_totals th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#monthly_totals tr:nth-child(even){background-color: #f2f2f2;}
+
+#monthly_totals tr:hover {background-color: #ddd;}
+
+#monthly_totals th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
 }
