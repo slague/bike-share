@@ -34,6 +34,19 @@
 
 
 <h2>Breakout of average number of rides on days with a high temperature in 10 degree chunks<h2>
-  
+
+   <table border="1">
+     <tr><% Condition.temperature_ranges.each do |range| %>
+         <th> Range <%= "#{range.first} to #{range.last}" %> </th>
+         <% end %>
+     </tr>
+
+     <tr><% Condition.get_averages_from_range.each do |average| %>
+       <th> Average number of rides:<%= average.to_f.round(2) %> </th>
+       <% end %>
+     </tr>
+
+   </table>
+
 
 </body>
