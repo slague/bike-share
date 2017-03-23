@@ -141,6 +141,7 @@ DEPENDENCIES
   capybara
   chronic
   database_cleaner
+  json
   launchy
   minitest
   pg

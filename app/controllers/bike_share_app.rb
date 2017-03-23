@@ -1,6 +1,7 @@
 require 'will_paginate'
 require 'will_paginate/active_record'
 require 'pry'
+require 'json'
 
 class BikeShareApp < Sinatra::Base
   include WillPaginate::Sinatra::Helpers
@@ -128,6 +129,11 @@ class BikeShareApp < Sinatra::Base
 
   get '/conditions-dashboard' do
     erb :"conditions/condition-dashboard"
+  end
+
+  get '/api/v1/stations/:id' do
+    @station = Station.find(params[:id])
+    erb :"stations/show"
   end
 
 private

@@ -8,6 +8,7 @@ gem 'sinatra-activerecord'
 gem 'will_paginate', '~> 3.1.1'
 gem 'awesome_print'
 gem 'chronic'
+gem 'json'
 
 group :development, :test do
   gem 'shotgun'

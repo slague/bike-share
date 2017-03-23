@@ -66,7 +66,6 @@ class Condition < ActiveRecord::Base
     trips.values.map do |date|
 
     end
-binding.pry
   end
 # [[Sun, 15 Dec 2013, Mon, 16 Dec 2013], [], [Wed, 18 Dec 2013]]
   # rides_per_day.average
