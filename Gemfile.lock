@@ -31,6 +31,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chronic (0.10.2)
     codeclimate-engine-rb (0.4.0)
       virtus (~> 1.0)
     coderay (1.1.1)
@@ -138,6 +139,7 @@ DEPENDENCIES
   awesome_print
   cane
   capybara
+  chronic
   database_cleaner
   launchy
   minitest

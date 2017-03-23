@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321213351) do
+ActiveRecord::Schema.define(version: 20170323044323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(version: 20170321213351) do
     t.integer "bike_id"
     t.text    "subscription_type_id"
     t.integer "zip_code"
+    t.integer "condition_id"
+    t.index ["condition_id"], name: "index_trips_on_condition_id", using: :btree
   end
 
+  add_foreign_key "trips", "conditions"
 end
