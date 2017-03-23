@@ -51,23 +51,16 @@ class Condition < ActiveRecord::Base
     end
   end
 
-    # date_in_temperature_ranges.map do |range|
-    #   range.map do |date|
-    #     p "i just ran"
-    #     Trip.where(start_date: date)
-    #   end
-    # end
+  def self.max_day
+    trips = number_of_trips_per_temperature_range.values
+    binding.pry
+    trips.values.map do |date|
 
-  # rides_per_day = For each date range, determine the number of rides
-  # on those days
-  # rides_per_day.max
+    end
+
+  end
+
   # rides_per_day.average
   # rides_per_day.min
-
-
-  # [13] pry(Condition)> x.map do |x|
-  # [13] pry(Condition)*   x.count
-  # [13] pry(Condition)* end
-  # Condition.where(max_temperature_f: range)
 
 end

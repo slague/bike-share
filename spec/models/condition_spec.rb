@@ -93,6 +93,11 @@ RSpec.describe Condition do
     it "#get_averages_from_range returns array of floats" do
       expect(Condition.get_averages_from_range).to eq([1.5, nil, 1.0])
     end
+
+    it "#max_day returns highest number of trips on some day in range" do
+      expect(Condition.max_day).to eq(2)
+    end
+
   end
 
 end
