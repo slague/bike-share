@@ -127,6 +127,8 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/conditions-dashboard' do
+     @highest = Condition.highest_ride_weather.first
+     @fewest = Condition.fewest_ride_weather.first
     erb :"conditions/condition-dashboard"
   end
 
