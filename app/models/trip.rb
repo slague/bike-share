@@ -4,10 +4,10 @@ class Trip < ActiveRecord::Base
 
   belongs_to :start_station, class_name: 'Station', foreign_key: :start_station_id
   belongs_to :end_station, class_name: 'Station', foreign_key: :end_station_id
-  belongs_to :end_station, class_name: 'Station'
-  belongs_to :subscription_type
+  # belongs_to :end_station, class_name: 'Station'
+  # belongs_to :subscription_type
   belongs_to :bike
-  belongs_to :condition
+  # belongs_to :condition
 
   validates :duration, presence: true
   validates :start_date, presence: true

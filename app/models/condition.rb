@@ -1,5 +1,5 @@
 class Condition < ActiveRecord::Base
-  has_many :trips
+  # has_many :trips
 
   validates :date, presence: true
   validates :max_temperature_f, presence: true
@@ -11,6 +11,7 @@ class Condition < ActiveRecord::Base
   validates :precipitation_inches, presence: true
   validates :zip_code, presence: true
 
+  
 
   def self.highest_ride_weather
     where(date: Trip.highest_number_trips_date.first.to_s)
@@ -25,6 +26,7 @@ class Condition < ActiveRecord::Base
     max_temp = maximum(:max_temperature_f)
     total_range = (min_temp..max_temp)
     total_range.each_slice(10)
+    # binding.pry
   end
 
   def self.trips_per_day(date)
@@ -36,6 +38,12 @@ class Condition < ActiveRecord::Base
       where(max_temperature_f: range).map(&:date)
     end
   end
+
+  # def self.date_in_temperature_ranges
+  #   temperature_ranges.map do |range|
+  #     where(max_temperature_f: range).map(&:date)
+  #   end
+  # end
 
   def self.number_of_trips_per_temperature_range
     range = date_in_temperature_ranges
@@ -52,14 +60,15 @@ class Condition < ActiveRecord::Base
   end
 
   def self.max_day
-    trips = number_of_trips_per_temperature_range.values
-    binding.pry
+
+    trips = number_of_trips_per_temperature_range
+    # binding.pry
     trips.values.map do |date|
 
     end
-
+binding.pry
   end
-
+# [[Sun, 15 Dec 2013, Mon, 16 Dec 2013], [], [Wed, 18 Dec 2013]]
   # rides_per_day.average
   # rides_per_day.min
 
