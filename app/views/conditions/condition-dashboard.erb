@@ -35,7 +35,7 @@
 
 <h2>Breakout of average number of rides on days with a high temperature in 10 degree chunks<h2>
 
-   <table border="1">
+   <table id="monthly_totals">
      <tr><% Condition.temperature_ranges.each do |range| %>
          <th> Range <%= "#{range.first} to #{range.last}" %> </th>
          <% end %>
